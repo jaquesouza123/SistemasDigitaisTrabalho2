@@ -1,0 +1,157 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+use work.ExponentialSearch_pkg.all;
+
+entity DataPath is
+    generic (
+        DATA_WIDTH  : integer := 8;
+        ADDR_WIDTH  : integer := 8
+    );
+    port (
+        clk         : in std_logic;
+        rst         : in std_logic;
+        data        : in std_logic_vector(DATA_WIDTH - 1 downto 0);
+        A           : in std_logic_vector(DATA_WIDTH - 1 downto 0); 
+        cmd         : in Command;
+        sts         : out Status;
+        addr        : out std_logic_vector(ADDR_WIDTH - 1 downto 0);
+        pos         : out std_logic_vector(DATA_WIDTH - 1 downto 0)
+    );
+end DataPath;
+
+architecture structural of DataPath is
+
+    -- saídas dos registradores
+    signal regBase, regLen, regKey, regI : std_logic_vector(DATA_WIDTH - 1 downto 0);
+    signal regLeft, regRight, regMid     : std_logic_vector(DATA_WIDTH - 1 downto 0);
+    signal regAddr, regPos               : std_logic_vector(DATA_WIDTH - 1 downto 0);
+
+    -- entradas dos registradores
+    signal in_i, in_left, in_right, in_pos : std_logic_vector(DATA_WIDTH - 1 downto 0);
+
+    -- splitters
+    signal i_mult      : std_logic_vector(DATA_WIDTH - 1 downto 0); -- i * 2 
+    signal i_div       : std_logic_vector(DATA_WIDTH - 1 downto 0); -- i / 2
+    signal add2_div    : std_logic_vector(DATA_WIDTH - 1 downto 0); -- left + right /2
+
+    -- sinais dos muxes e somadores
+    signal sx1          : std_logic_vector(2 downto 0);
+    signal sy1          : std_logic_vector(1 downto 0);
+    signal sy2          : std_logic_vector(1 downto 0);
+    signal x1_out, y1_out, y1_xor : std_logic_vector(DATA_WIDTH - 1 downto 0);
+    signal x2_out, y2_out         : std_logic_vector(DATA_WIDTH - 1 downto 0);
+    signal add1_out, add2_out     : std_logic_vector(DATA_WIDTH - 1 downto 0);
+
+begin
+
+    U_REG_BASE: entity work.RegisterNbits generic map(WIDTH => DATA_WIDTH)
+        port map(clock => clk,
+                 reset => rst,
+                 ce => cmd.ld_base,
+                 d => data,
+                 q => regBase);
+
+    U_REG_LEN: entity work.RegisterNbits generic map(WIDTH => DATA_WIDTH)
+        port map(clock => clk,
+                 reset => rst,
+                 ce => cmd.ld_len,
+                 d => data,
+                 q => regLen);
+
+    U_REG_KEY: entity work.RegisterNbits generic map(WIDTH => DATA_WIDTH)
+        port map(clock => clk, reset => rst, ce => cmd.ld_key, d => data, q => regKey);
+
+    U_REG_I: entity work.RegisterNbits generic map(WIDTH => DATA_WIDTH)
+        port map(clock => clk, reset => rst, ce => cmd.ld_i, d => in_i, q => regI);
+
+    U_REG_LEFT: entity work.RegisterNbits generic map(WIDTH => DATA_WIDTH)
+        port map(clock => clk, reset => rst, ce => cmd.ld_left, d => in_left, q => regLeft);
+
+    U_REG_RIGHT: entity work.RegisterNbits generic map(WIDTH => DATA_WIDTH)
+        port map(clock => clk, reset => rst, ce => cmd.ld_right, d => in_right, q => regRight);
+
+    U_REG_MID: entity work.RegisterNbits generic map(WIDTH => DATA_WIDTH)
+        port map(clock => clk, reset => rst, ce => cmd.ld_mid, d => add2_shr1, q => regMid);
+
+    U_REG_ADDR: entity work.RegisterNbits generic map(WIDTH => ADDR_WIDTH)
+        port map(clock => clk, reset => rst, ce => cmd.ld_addr, d => add2_out, q => regAddr);
+
+    U_REG_POS: entity work.RegisterNbits generic map(WIDTH => DATA_WIDTH)
+        port map(clock => clk, reset => rst, ce => cmd.ld_pos, d => in_pos, q => regPos);
+
+    -- Deslocadores de bits (conforme Splitters do Logisim)
+    i_mult    <= regI(DATA_WIDTH - 2 downto 0) & '0';
+    i_div    <= '0' & regI(DATA_WIDTH - 1 downto 1);
+    add2_div <= '0' & add2_out(DATA_WIDTH - 1 downto 1);
+
+    -- Multiplexadores de entrada dos registradores
+    in_i     <= x"01"   when cmd.sel_i = '0'     else i_shl1;
+    in_left  <= i_mult  when cmd.sel_left = '0'  else add1_out;
+    in_right <= regI    when cmd.sel_right = '0' else add1_out;
+    in_pos   <= x"FF"   when cmd.sel_pos = '0'   else regMid;
+
+    -- Agrupamento dos seletores dos MUXes principais
+    sx1 <= cmd.sx1_2 & cmd.sx1_1 & cmd.sx1_0;
+    sy1 <= cmd.sy1_1 & cmd.sy1_0;
+    sy2 <= cmd.sy2_1 & cmd.sy2_0;
+
+    -- MUX X1 (8 entradas)
+    with sx1 select x1_out <=
+        regLen   when "000",
+        A        when "001",
+        regKey   when "010",
+        regI     when "011",
+        regRight when "100",
+        regMid   when "101",
+        (others => '0') when others;
+
+    -- MUX Y1 (4 entradas)
+    with sy1 select y1_out <=
+        x"01"    when "00",
+        regI     when "01",
+        regKey   when "10",
+        regLeft  when others;
+
+    -- XOR para complemento de 1 quando sub1 = '1'
+    y1_xor <= y1_out xor (DATA_WIDTH - 1 downto 0 => cmd.sub1);
+
+    -- Somador ADD1 (Adder_nbits)
+    U_ADD1: entity work.Adder_nbits generic map(WIDTH => DATA_WIDTH)
+        port map(
+            a    => x1_out,
+            b    => y1_xor,
+            cin  => cmd.sub1,
+            sum  => add1_out,
+            cout => open
+        );
+
+    -- MUX X2 (2 entradas)
+    x2_out <= regBase when cmd.sx2 = '0' else regLeft;
+
+    -- MUX Y2 (4 entradas)
+    with sy2 select y2_out <=
+        regI     when "00",
+        regMid   when "01",
+        regRight when "10",
+        (others => '0') when others;
+
+    -- Somador ADD2 (Adder_nbits)
+    U_ADD2: entity work.Adder_nbits generic map(WIDTH => DATA_WIDTH)
+        port map(
+            a    => x2_out,
+            b    => y2_out,
+            cin  => '0',
+            sum  => add2_out,
+            cout => open
+        );
+
+    -- Flags de Status (zero e neg) extraídas da saída de ADD1
+    sts.neg  <= add1_out(DATA_WIDTH - 1);
+    sts.zero <= '1' when add1_out = (DATA_WIDTH - 1 downto 0 => '0') else '0';
+
+    -- Saídas do DataPath
+    addr <= regAddr;
+    pos  <= regPos;
+
+end structural;
