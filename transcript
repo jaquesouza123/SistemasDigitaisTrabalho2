@@ -1,76 +1,6 @@
-ls
-# Adder_nbits.vhd                ExponentialSearch_tb.vhd.bak  
-# ControlPath.vhd                Memory.vhd                    
-# ControlPath.vhd.bak            RegisterNbits.vhd             
-# DataPath.vhd                   RegisterNbits.vhd.bak         
-# ExponentialSearch.cr.mti       Util_pkg.vhd                  
-# ExponentialSearch.mpf          Util_pkg.vhd.bak              
-# ExponentialSearch.vhd          bubbleSort                    
-# ExponentialSearch.vhd.bak      image.txt                     
-# ExponentialSearch_pkg.vhd      transcript                    
-# ExponentialSearch_pkg.vhd.bak  vsim.wlf                      
-# ExponentialSearch_tb.vhd       work                          
-vcom Util_pkg.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:33:54 on Nov 12,2026
-# vcom -reportprogress 300 Util_pkg.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling package Util_pkg
-# -- Compiling package body Util_pkg
-# -- Loading package Util_pkg
-# End time: 13:33:54 on Nov 12,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom Memory.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:34:03 on Nov 12,2026
-# vcom -reportprogress 300 Memory.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package Util_pkg
-# -- Compiling entity Memory
-# -- Compiling architecture BlockRAM of Memory
-# End time: 13:34:03 on Nov 12,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom RegisterNbits.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:34:16 on Nov 12,2026
-# vcom -reportprogress 300 RegisterNbits.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity RegisterNbits
-# -- Compiling architecture behavioral of RegisterNbits
-# End time: 13:34:16 on Nov 12,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom Adder_nbits.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:34:24 on Nov 12,2026
-# vcom -reportprogress 300 Adder_nbits.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity Adder_nbits
-# -- Compiling architecture behavioral of Adder_nbits
-# End time: 13:34:24 on Nov 12,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom ExponentialSearch_pkg.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:34:35 on Nov 12,2026
-# vcom -reportprogress 300 ExponentialSearch_pkg.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling package ExponentialSearch_pkg
-# End time: 13:34:35 on Nov 12,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
 vcom DataPath.vhd
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:34:45 on Nov 12,2026
+# Start time: 21:51:02 on Nov 12,2026
 # vcom -reportprogress 300 DataPath.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -81,56 +11,11 @@ vcom DataPath.vhd
 # -- Compiling architecture structural of DataPath
 # -- Loading entity RegisterNbits
 # -- Loading entity Adder_nbits
-# End time: 13:34:45 on Nov 12,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom ControlPath.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:34:56 on Nov 12,2026
-# vcom -reportprogress 300 ControlPath.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package ExponentialSearch_pkg
-# -- Compiling entity ControlPath
-# -- Compiling architecture behavioral of ControlPath
-# End time: 13:34:56 on Nov 12,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom ExponentialSearch.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:35:04 on Nov 12,2026
-# vcom -reportprogress 300 ExponentialSearch.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package ExponentialSearch_pkg
-# -- Compiling entity ExponentialSearch
-# -- Compiling architecture structural of ExponentialSearch
-# -- Loading entity ControlPath
-# -- Loading entity DataPath
-# -- Compiling architecture behavioral of ExponentialSearch
-# -- Loading entity ExponentialSearch
-# End time: 13:35:05 on Nov 12,2026, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-vcom ExponentialSearch_tb.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:35:13 on Nov 12,2026
-# vcom -reportprogress 300 ExponentialSearch_tb.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity ExponentialSearch_tb
-# -- Compiling architecture behavioral of ExponentialSearch_tb
-# -- Loading package ExponentialSearch_pkg
-# -- Loading entity ExponentialSearch
-# -- Loading package Util_pkg
-# -- Loading entity Memory
-# End time: 13:35:13 on Nov 12,2026, Elapsed time: 0:00:00
+# End time: 21:51:03 on Nov 12,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 vsim -gui work.exponentialsearch_tb
 # vsim -gui work.exponentialsearch_tb 
-# Start time: 13:35:33 on Nov 12,2026
+# Start time: 21:52:05 on Nov 12,2026
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -145,73 +30,12 @@ vsim -gui work.exponentialsearch_tb
 # Loading work.adder_nbits(behavioral)
 # Loading work.memory(blockram)
 # Loading work.exponentialsearch(behavioral)
-add wave -position insertpoint sim:/exponentialsearch_tb/*
-run 1 us
+add wave sim:/exponentialsearch_tb/*
+run 20 us
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /exponentialsearch_tb/RAM2
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /exponentialsearch_tb/RAM1
-run 50 ns
-quit -sim
-# End time: 13:44:48 on Nov 12,2026, Elapsed time: 0:09:15
+# WARNING: No extended dataflow license exists
+# End time: 21:54:17 on Nov 12,2026, Elapsed time: 0:02:12
 # Errors: 0, Warnings: 3
-vcom Memory.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:15:13 on Nov 12,2026
-# vcom -reportprogress 300 Memory.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package Util_pkg
-# -- Compiling entity Memory
-# -- Compiling architecture BlockRAM of Memory
-# End time: 14:15:13 on Nov 12,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom RegisterNbits.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:24:44 on Nov 12,2026
-# vcom -reportprogress 300 RegisterNbits.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity RegisterNbits
-# -- Compiling architecture behavioral of RegisterNbits
-# End time: 14:24:44 on Nov 12,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom RegisterNbits.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:26:11 on Nov 12,2026
-# vcom -reportprogress 300 RegisterNbits.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity RegisterNbits
-# -- Compiling architecture behavioral of RegisterNbits
-# End time: 14:26:12 on Nov 12,2026, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-vcom ExponentialSearch_pkg.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:35:59 on Nov 12,2026
-# vcom -reportprogress 300 ExponentialSearch_pkg.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling package ExponentialSearch_pkg
-# End time: 14:35:59 on Nov 12,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom DataPath.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:58:27 on Nov 12,2026
-# vcom -reportprogress 300 DataPath.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package ExponentialSearch_pkg
-# -- Compiling entity DataPath
-# -- Compiling architecture structural of DataPath
-# -- Loading entity RegisterNbits
-# -- Loading entity Adder_nbits
-# End time: 14:58:27 on Nov 12,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0

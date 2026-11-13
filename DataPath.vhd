@@ -124,27 +124,26 @@ begin
     sy1 <= cmd.sy1_1 & cmd.sy1_0;
     sy2 <= cmd.sy2_1 & cmd.sy2_0;
 
-    -- mux x1 (8 entradas)
+    -- mux x1 
     with sx1 select x1_out <=
         regLen   when "000",
-        A        when "001",
-        regKey   when "010",
-        regI     when "011",
-        regRight when "100",
-        regMid   when "101",
+        regI     when "001", 
+        A        when "010",
+        regRight when "011",
+        regMid   when "100",
         (others => '0') when others;
 
-    -- MUX Y1 (4 entradas)
+    -- mux y1 
     with sy1 select y1_out <=
         x"01"    when "00",
-        regI     when "01",
+        regLen   when "01",
         regKey   when "10",
         regLeft  when others;
 
-    -- XOR para complemento de 1 quando sub1 = '1'
+ 
     y1_xor <= y1_out xor (DATA_WIDTH - 1 downto 0 => cmd.sub1);
 
-    -- Somador ADD1 (Adder_nbits)
+    -- somador ADD1 
     U_ADD1: entity work.Adder_nbits generic map(WIDTH => DATA_WIDTH)
         port map(
             a    => x1_out,
@@ -154,17 +153,17 @@ begin
             cout => open
         );
 
-    -- MUX X2 (2 entradas)
+    -- mux x2
     x2_out <= regBase when cmd.sx2 = '0' else regLeft;
 
-    -- MUX Y2 (4 entradas)
+    -- mux y2
     with sy2 select y2_out <=
         regI     when "00",
         regMid   when "01",
         regRight when "10",
         (others => '0') when others;
 
-    -- Somador ADD2 (Adder_nbits)
+    -- somador ADD2
     U_ADD2: entity work.Adder_nbits generic map(WIDTH => DATA_WIDTH)
         port map(
             a    => x2_out,
@@ -174,11 +173,11 @@ begin
             cout => open
         );
 
-    -- Flags de Status (zero e neg) extraídas da saída de ADD1
+    -- status
     sts.neg  <= add1_out(DATA_WIDTH - 1);
     sts.zero <= '1' when add1_out = (DATA_WIDTH - 1 downto 0 => '0') else '0';
 
-    -- Saídas do DataPath
+    -- saídas do datapath
     addr <= regAddr;
     pos  <= regPos;
 

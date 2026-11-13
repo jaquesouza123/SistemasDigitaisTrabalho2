@@ -60,43 +60,71 @@ begin
                  q => regLen);
 
     U_REG_KEY: entity work.RegisterNbits generic map(WIDTH => DATA_WIDTH)
-        port map(clock => clk, reset => rst, ce => cmd.ld_key, d => data, q => regKey);
+        port map(clock => clk,
+                 reset => rst, 
+                 ce => cmd.ld_key,
+                 d => data,
+                 q => regKey);
 
     U_REG_I: entity work.RegisterNbits generic map(WIDTH => DATA_WIDTH)
-        port map(clock => clk, reset => rst, ce => cmd.ld_i, d => in_i, q => regI);
+        port map(clock => clk,
+                 reset => rst,
+                 ce => cmd.ld_i,
+                 d => in_i,
+                 q => regI);
 
     U_REG_LEFT: entity work.RegisterNbits generic map(WIDTH => DATA_WIDTH)
-        port map(clock => clk, reset => rst, ce => cmd.ld_left, d => in_left, q => regLeft);
+        port map(clock => clk,
+                 reset => rst,
+                 ce => cmd.ld_left,
+                 d => in_left,
+                 q => regLeft);
 
     U_REG_RIGHT: entity work.RegisterNbits generic map(WIDTH => DATA_WIDTH)
-        port map(clock => clk, reset => rst, ce => cmd.ld_right, d => in_right, q => regRight);
+        port map(clock => clk,
+                 reset => rst,
+                 ce => cmd.ld_right,
+                 d => in_right,
+                 q => regRight);
 
     U_REG_MID: entity work.RegisterNbits generic map(WIDTH => DATA_WIDTH)
-        port map(clock => clk, reset => rst, ce => cmd.ld_mid, d => add2_shr1, q => regMid);
+        port map(clock => clk,
+                 reset => rst, 
+                 ce => cmd.ld_mid,
+                 d => add2_div,
+                 q => regMid);
 
     U_REG_ADDR: entity work.RegisterNbits generic map(WIDTH => ADDR_WIDTH)
-        port map(clock => clk, reset => rst, ce => cmd.ld_addr, d => add2_out, q => regAddr);
+        port map(clock => clk,
+                 reset => rst,
+                 ce => cmd.ld_addr,
+                 d => add2_out,
+                 q => regAddr);
 
     U_REG_POS: entity work.RegisterNbits generic map(WIDTH => DATA_WIDTH)
-        port map(clock => clk, reset => rst, ce => cmd.ld_pos, d => in_pos, q => regPos);
+        port map(clock => clk,
+                 reset => rst,
+                 ce => cmd.ld_pos, 
+                 d => in_pos,
+                 q => regPos);
 
-    -- Deslocadores de bits (conforme Splitters do Logisim)
+    -- deslocadores de bits
     i_mult    <= regI(DATA_WIDTH - 2 downto 0) & '0';
     i_div    <= '0' & regI(DATA_WIDTH - 1 downto 1);
     add2_div <= '0' & add2_out(DATA_WIDTH - 1 downto 1);
 
-    -- Multiplexadores de entrada dos registradores
-    in_i     <= x"01"   when cmd.sel_i = '0'     else i_shl1;
+    -- multiplexadores de entrada dos registradores
+    in_i     <= x"01"   when cmd.sel_i = '0'     else i_mult;
     in_left  <= i_mult  when cmd.sel_left = '0'  else add1_out;
     in_right <= regI    when cmd.sel_right = '0' else add1_out;
-    in_pos   <= x"FF"   when cmd.sel_pos = '0'   else regMid;
+    in_pos   <= x"ff"   when cmd.sel_pos = '0'   else regMid;
 
-    -- Agrupamento dos seletores dos MUXes principais
+    -- agrupamento dos seletores dos muxes principais
     sx1 <= cmd.sx1_2 & cmd.sx1_1 & cmd.sx1_0;
     sy1 <= cmd.sy1_1 & cmd.sy1_0;
     sy2 <= cmd.sy2_1 & cmd.sy2_0;
 
-    -- MUX X1 (8 entradas)
+    -- mux x1 (8 entradas)
     with sx1 select x1_out <=
         regLen   when "000",
         A        when "001",

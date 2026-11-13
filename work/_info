@@ -97,7 +97,7 @@ R15
 R1
 R2
 R3
-!i122 38
+!i122 39
 R4
 Z24 8DataPath.vhd
 Z25 FDataPath.vhd
@@ -107,9 +107,9 @@ Vdh59NS]_Mg]SQoAGl9ANN2
 !s100 ;M^B6eCjFK74gb;4e4=@Q1
 R7
 32
-Z26 !s110 1794506307
+Z26 !s110 1794531063
 !i10b 1
-Z27 !s108 1794506307.000000
+Z27 !s108 1794531062.000000
 Z28 !s90 -reportprogress|300|DataPath.vhd|
 Z29 !s107 DataPath.vhd|
 !i113 1
@@ -122,11 +122,11 @@ R1
 R2
 R3
 Z31 DEx4 work 8 datapath 0 22 dh59NS]_Mg]SQoAGl9ANN2
-!i122 38
+!i122 39
 l46
-L23 163
-VA8;4FIeaIVaAFiCkaIRz90
-!s100 dI;G8GmcLVY?h:DH6ndMo3
+Z32 L23 163
+Z33 VA8;4FIeaIVaAFiCkaIRz90
+Z34 !s100 dI;G8GmcLVY?h:DH6ndMo3
 R7
 32
 R26
@@ -137,26 +137,26 @@ R29
 !i113 1
 R12
 Eexponentialsearch
-Z32 w1794422544
+Z35 w1794422544
 R15
 R1
 R2
 R3
 !i122 32
 R4
-Z33 8ExponentialSearch.vhd
-Z34 FExponentialSearch.vhd
+Z36 8ExponentialSearch.vhd
+Z37 FExponentialSearch.vhd
 l0
 L6 1
 VPA^XF99dg79m1GZS`<LO03
 !s100 jiP:3zD8X4mh4RHc^ooR[3
 R7
 32
-Z35 !s110 1794501305
+Z38 !s110 1794501305
 !i10b 1
-Z36 !s108 1794501304.000000
-Z37 !s90 -reportprogress|300|ExponentialSearch.vhd|
-Z38 !s107 ExponentialSearch.vhd|
+Z39 !s108 1794501304.000000
+Z40 !s90 -reportprogress|300|ExponentialSearch.vhd|
+Z41 !s107 ExponentialSearch.vhd|
 !i113 1
 R12
 Abehavioral
@@ -164,7 +164,7 @@ R15
 R1
 R2
 R3
-Z39 DEx4 work 17 exponentialsearch 0 22 PA^XF99dg79m1GZS`<LO03
+Z42 DEx4 work 17 exponentialsearch 0 22 PA^XF99dg79m1GZS`<LO03
 !i122 32
 l97
 L71 168
@@ -172,11 +172,11 @@ VE>h3hbTebhC99oZ7DPTHI1
 !s100 3k3=Hl6iO0774j7nPjfJj1
 R7
 32
-R35
-!i10b 1
-R36
-R37
 R38
+!i10b 1
+R39
+R40
+R41
 !i113 1
 R12
 Astructural
@@ -186,7 +186,7 @@ R15
 R1
 R2
 R3
-R39
+R42
 !i122 32
 l34
 L31 36
@@ -194,11 +194,11 @@ VXDPT>YJf5C2Qb_4n_b==V3
 !s100 >P@SdV70<90KQJ__onOSK1
 R7
 32
-R35
-!i10b 1
-R36
-R37
 R38
+!i10b 1
+R39
+R40
+R41
 !i113 1
 R12
 Pexponentialsearch_pkg
@@ -223,32 +223,32 @@ R7
 !i113 1
 R12
 Eexponentialsearch_tb
-Z40 w1794422596
+Z43 w1794422596
 R1
 R2
 R3
 !i122 33
 R4
-Z41 8ExponentialSearch_tb.vhd
-Z42 FExponentialSearch_tb.vhd
+Z44 8ExponentialSearch_tb.vhd
+Z45 FExponentialSearch_tb.vhd
 l0
 L5 1
 VQL=aTLbdImR0eB955_:>O1
 !s100 fE2d;=WQjTJ:MDEnz5J8>0
 R7
 32
-Z43 !s110 1794501313
+Z46 !s110 1794501313
 !i10b 1
-Z44 !s108 1794501313.000000
-Z45 !s90 -reportprogress|300|ExponentialSearch_tb.vhd|
-Z46 !s107 ExponentialSearch_tb.vhd|
+Z47 !s108 1794501313.000000
+Z48 !s90 -reportprogress|300|ExponentialSearch_tb.vhd|
+Z49 !s107 ExponentialSearch_tb.vhd|
 !i113 1
 R12
 Abehavioral
-Z47 DPx4 work 8 util_pkg 0 22 Na[`l0Je_UXRePhYK7<573
-Z48 DEx4 work 6 memory 0 22 hS;>dZeZ:hmNOa3lm<5mh3
+Z50 DPx4 work 8 util_pkg 0 22 Na[`l0Je_UXRePhYK7<573
+Z51 DEx4 work 6 memory 0 22 hS;>dZeZ:hmNOa3lm<5mh3
 R15
-R39
+R42
 R1
 R2
 R3
@@ -260,42 +260,42 @@ Vnk2<nikAhJ8a4bRTU2dTQ1
 !s100 c5KeMZ3^UBoO<aWXo<Sk82
 R7
 32
-R43
-!i10b 1
-R44
-R45
 R46
+!i10b 1
+R47
+R48
+R49
 !i113 1
 R12
 Ememory
-Z49 w1794417013
-R47
+Z52 w1794417013
+R50
 R1
 R2
 R3
 !i122 34
 R4
-Z50 8Memory.vhd
-Z51 FMemory.vhd
+Z53 8Memory.vhd
+Z54 FMemory.vhd
 l0
 L13 1
 VhS;>dZeZ:hmNOa3lm<5mh3
 !s100 9SMG:N8mz2neVlgcY;BLb0
 R7
 32
-Z52 !s110 1794503713
+Z55 !s110 1794503713
 !i10b 1
-Z53 !s108 1794503713.000000
-Z54 !s90 -reportprogress|300|Memory.vhd|
-Z55 !s107 Memory.vhd|
+Z56 !s108 1794503713.000000
+Z57 !s90 -reportprogress|300|Memory.vhd|
+Z58 !s107 Memory.vhd|
 !i113 1
 R12
 Ablockram
-R47
+R50
 R1
 R2
 R3
-R48
+R51
 !i122 34
 l57
 L29 54
@@ -303,32 +303,32 @@ VQoC73gzjiSB0dAGJAm6l20
 !s100 9Uf>;QiOE]jMd@m2zMa^;2
 R7
 32
-R52
-!i10b 1
-R53
-R54
 R55
+!i10b 1
+R56
+R57
+R58
 !i113 1
 R12
 Eregisternbits
-Z56 w1794422387
+Z59 w1794422387
 R2
 R3
 !i122 36
 R4
-Z57 8RegisterNbits.vhd
-Z58 FRegisterNbits.vhd
+Z60 8RegisterNbits.vhd
+Z61 FRegisterNbits.vhd
 l0
 L4 1
 Vd[G?<>8b^ciBHL4<>7U390
 !s100 DE?SI7e5IOfH>^J7]<h3K1
 R7
 32
-Z59 !s110 1794504372
+Z62 !s110 1794504372
 !i10b 1
-Z60 !s108 1794504371.000000
-Z61 !s90 -reportprogress|300|RegisterNbits.vhd|
-Z62 !s107 RegisterNbits.vhd|
+Z63 !s108 1794504371.000000
+Z64 !s90 -reportprogress|300|RegisterNbits.vhd|
+Z65 !s107 RegisterNbits.vhd|
 !i113 1
 R12
 Abehavioral
@@ -342,21 +342,21 @@ V;CGf7W[f>:fI=_[IGOTo;1
 !s100 _TT5]e9KBcflCbdW?KGeA0
 R7
 32
-R59
-!i10b 1
-R60
-R61
 R62
+!i10b 1
+R63
+R64
+R65
 !i113 1
 R12
 Putil_pkg
 R2
 R3
 !i122 25
-Z63 w1794500647
+Z66 w1794500647
 R4
-Z64 8Util_pkg.vhd
-Z65 FUtil_pkg.vhd
+Z67 8Util_pkg.vhd
+Z68 FUtil_pkg.vhd
 l0
 L6 1
 VNa[`l0Je_UXRePhYK7<573
@@ -364,15 +364,15 @@ VNa[`l0Je_UXRePhYK7<573
 R7
 32
 b1
-Z66 !s110 1794501234
+Z69 !s110 1794501234
 !i10b 1
-Z67 !s108 1794501234.000000
-Z68 !s90 -reportprogress|300|Util_pkg.vhd|
-Z69 !s107 Util_pkg.vhd|
+Z70 !s108 1794501234.000000
+Z71 !s90 -reportprogress|300|Util_pkg.vhd|
+Z72 !s107 Util_pkg.vhd|
 !i113 1
 R12
 Bbody
-R47
+R50
 R2
 R3
 !i122 25
@@ -382,10 +382,10 @@ V;kgTQI3JXPF?4icKg[V8A3
 !s100 <O8?J2ENa_bPB`i25o3Gj2
 R7
 32
-R66
-!i10b 1
-R67
-R68
 R69
+!i10b 1
+R70
+R71
+R72
 !i113 1
 R12
