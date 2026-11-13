@@ -109,7 +109,7 @@ begin
                  q => regPos);
 
     -- deslocadores de bits
-    i_mult    <= regI(DATA_WIDTH - 2 downto 0) & '0';
+    i_mult   <= regI(DATA_WIDTH - 2 downto 0) & '0';
     i_div    <= '0' & regI(DATA_WIDTH - 1 downto 1);
     add2_div <= '0' & add2_out(DATA_WIDTH - 1 downto 1);
 
@@ -124,7 +124,7 @@ begin
     sy1 <= cmd.sy1_1 & cmd.sy1_0;
     sy2 <= cmd.sy2_1 & cmd.sy2_0;
 
-    -- mux x1 
+    -- mux X1 
     with sx1 select x1_out <=
         regLen   when "000",
         regI     when "001", 
@@ -153,10 +153,10 @@ begin
             cout => open
         );
 
-    -- mux x2
+    -- mux X2
     x2_out <= regBase when cmd.sx2 = '0' else regLeft;
 
-    -- mux y2
+    -- mux Y2
     with sy2 select y2_out <=
         regI     when "00",
         regMid   when "01",

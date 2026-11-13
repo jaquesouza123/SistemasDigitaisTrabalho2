@@ -6,11 +6,11 @@ entity RegisterNbits is
         WIDTH : integer := 8
     );
     port (
-        clock   : in std_logic;
-        reset   : in std_logic;
-        ce      : in std_logic;
-        d       : in std_logic_vector(WIDTH - 1 downto 0);
-        q       : out std_logic_vector(WIDTH - 1 downto 0)
+        clock : in  std_logic;
+        reset : in  std_logic;
+        ce    : in  std_logic;
+        d     : in  std_logic_vector(WIDTH - 1 downto 0);
+        q     : out std_logic_vector(WIDTH - 1 downto 0) -- Sem ponto e vírgula aqui
     );
 end RegisterNbits;
 

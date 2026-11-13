@@ -6,28 +6,28 @@ entity ControlPath is
     port (
         clk     : in std_logic;
         rst     : in std_logic;
-        data_av : in std_logic; -- pino 'd' no NextState
-        sts     : in Status;    -- sts.neg ('n') e sts.zero ('z')
+        data_av : in std_logic; 
+        sts     : in Status;   
         cmd     : out Command;
-        sel     : out std_logic; -- pino 'mem' no Logisim
-        ld      : out std_logic; -- constante '0' no Logisim
+        sel     : out std_logic; 
+        ld      : out std_logic; 
         done    : out std_logic
     );
 end ControlPath;
 
 architecture behavioral of ControlPath is
 
-    signal q : std_logic_vector(4 downto 0); -- q(4)=q4, q(3)=q3, q(2)=q2, q(1)=q1, q(0)=q0
-    signal d : std_logic_vector(4 downto 0); -- D4..D0
+    signal q : std_logic_vector(4 downto 0); 
+    signal d : std_logic_vector(4 downto 0); 
     signal n, z, av : std_logic;
 
 begin
 
     n  <= sts.neg;
-    z  <= sts.zero;
+    z  <= sts.zero; -- Corrigido o operador <=
     av <= data_av;
 
-    -- Registrador de Estados (5 Flip-Flops D)
+    -- flip-flops D
     process(clk, rst)
     begin
         if rst = '1' then
@@ -37,91 +37,81 @@ begin
         end if;
     end process;
 
-    -- Lógica de Próximo Estado (NextState do Logisim)
-    d(4) <= q(4) and q(0) and n;
+    -- expressões do nextState 
+    d(4) <= q(3) and q(2) and q(1);
 
-    d(3) <= (q(3) and not q(2)) or
-            (not q(3) and q(2) and q(1) and q(0)) or
-            (q(3) and not q(1) and not q(0)) or
-            (q(3) and q(1) and q(0) and not n);
+    d(3) <= (((not q(3)) and q(1) and n and q(0)) or 
+             ((not q(3)) and q(2) and (not n) and q(0)) or 
+             (q(3) and (not q(2))) or 
+             (q(3) and (not q(1))));
 
-    d(2) <= (not q(3) and not q(2) and q(1) and q(0)) or
-            (not q(3) and q(2) and not q(1) and not q(0)) or
-            (not q(3) and q(2) and not q(1) and q(0) and not z and n) or
-            (not q(3) and q(2) and q(1) and not q(0) and z) or
-            (q(3) and not q(2) and not q(1) and q(0) and not z) or
-            (q(3) and not q(2) and q(1) and not q(0)) or
-            (q(3) and not q(2) and q(1) and q(0) and n);
+    d(2) <= (((not q(2)) and q(1) and q(0)) or 
+             ((not q(3)) and q(2) and (not q(0))) or 
+             ((not q(3)) and q(2) and (not q(1)) and n) or 
+             (q(3) and (not q(2)) and n and q(0)));
 
-    d(1) <= (not q(4) and not q(3) and not q(2) and not q(1) and q(0)) or
-            (not q(3) and not q(2) and q(1) and not q(0)) or
-            (not q(3) and q(2) and not q(1) and q(0) and z) or
-            (not q(3) and q(2) and not q(1) and q(0) and not n) or
-            (not q(3) and q(2) and q(1) and not q(0) and not z) or
-            (q(3) and not q(2) and not q(1) and q(0) and z) or
-            (q(3) and not q(2) and q(1) and not q(0)) or
-            (q(3) and q(2) and not q(1) and not q(0)) or
-            (q(3) and q(2) and not q(1) and q(0) and not z and not n);
+    d(1) <= (((not q(2)) and (not q(1)) and av and q(0)) or 
+             ((not q(2)) and q(1) and (not q(0))) or 
+             ((not q(3)) and (not q(2)) and q(1) and n) or 
+             ((not q(3)) and q(2) and (not q(1)) and (not n) and (not q(0))) or 
+             ((not q(3)) and q(2) and (not q(1)) and n and q(0)) or 
+             (q(3) and (not q(2)) and (not q(1)) and q(0)) or 
+             (q(3) and (not q(2)) and z and q(0)));
 
-    d(0) <= (not q(4) and not q(3) and not q(2) and not q(1) and not q(0) and av) or
-            (not q(3) and not q(2) and q(1) and not q(0)) or
-            (not q(3) and q(2) and not q(1) and not q(0)) or
-            (not q(3) and q(2) and q(1) and not q(0) and not z) or
-            (q(3) and not q(2) and not q(1) and not q(0)) or
-            (q(3) and q(2) and not q(1) and not q(0)) or
-            (q(3) and q(2) and not q(1) and q(0) and n) or
-            (q(3) and q(2) and q(1) and not q(0)) or
-            (q(3) and q(2) and q(1) and q(0));
+    d(0) <= (((not q(3)) and (not q(2)) and (not q(1)) and (not av) and q(0)) or 
+             ((not q(4)) and (not q(2)) and av and (not q(0))) or 
+             ((not q(3)) and q(1) and n and q(0)) or 
+             (q(2) and (not q(1)) and (not q(0))) or 
+             ((not q(3)) and q(2) and q(1) and q(0)) or 
+             (q(3) and (not q(2)) and (not q(0))) or 
+             (q(3) and (not q(1)) and n) or 
+             (q(3) and (not q(2)) and q(1) and (not n) and (not z)) or 
+             (q(3) and q(2) and (not q(1))));
 
-    -- Saídas de Carga dos Registradores e Memória (Output_Registers do Logisim)
+    -- outputRegisters 
     cmd.ld_base  <= (not q(4)) and (not q(3)) and (not q(2)) and (not q(1)) and q(0);
-    cmd.ld_len   <= (not q(3)) and (not q(2)) and q(1) and (not q(0));
-    cmd.ld_key   <= (not q(3)) and (not q(2)) and q(1) and q(0);
+    cmd.ld_len   <= (not q(3)) and (not q(2)) and q(1) and  q(0);
+    cmd.ld_key   <= (not q(3)) and (not q(2)) and q(1) and (not q(0));
 
-    cmd.ld_i     <= ((not q(3)) and q(2) and (not q(1)) and (not q(0))) or
-                    (q(3) and (not q(2)) and (not q(1)) and (not q(0)));
+    cmd.ld_i     <= (((not q(3)) and (not q(2)) and q(1) and q(0)) or
+                     ((not q(3)) and q(2) and  q(1) and (not q(0))));
 
-    cmd.ld_addr  <= ((not q(3)) and q(2) and (not q(1)) and q(0)) or
-                    (q(3) and q(2) and (not q(1)) and (not q(0)));
+    cmd.ld_addr  <= (((not q(3)) and (not q(2)) and  q(1) and (not q(0))) or
+                     ((not q(3)) and q(2) and (not q(1)) and (not q(0))));
 
-    cmd.ld_left  <= ((not q(3)) and q(2) and q(1) and q(0)) or
-                    (q(3) and q(2) and q(1) and (not q(0)));
+    cmd.ld_left  <= (((not q(3)) and (not q(1)) and (not q(0))) or
+                     ((not q(3)) and q(2) and q(1) and  q(0)));
 
-    cmd.ld_right <= ((not q(3)) and q(2) and q(1) and q(0)) or
-                    (q(3) and (not q(2)) and q(1) and (not q(0))) or
-                    (q(3) and q(2) and q(1) and q(0));
+    cmd.ld_right <= (((not q(3)) and q(2) and q(1) and q(0)) or
+                     (q(3) and  q(2) and (not q(1)) and q(0)) or
+                     (q(3) and (not q(2)) and (not q(1)) and (not q(0))));
 
-    cmd.ld_mid   <= q(3) and q(2) and (not q(1)) and q(0);
+    cmd.ld_mid   <= q(3) and (not q(2)) and (not q(1)) and q(0);
 
-    cmd.ld_pos   <= ((not q(3)) and q(2) and q(1) and (not q(0)) and z) or
-                    (q(3) and (not q(2)) and (not q(1)) and q(0) and z) or
-                    (q(3) and q(2) and (not q(1)) and q(0) and z) or
-                    (q(3) and q(2) and q(1) and (not q(0)) and (not n));
+    cmd.ld_pos   <= q(3) and q(2) and q(1);
 
-    cmd.sel_pos  <= q(3) and q(2) and (not q(1)) and q(0);
+    cmd.sel_pos  <= q(0);
 
-    sel          <= ((not q(3)) and q(2) and q(1) and (not q(0))) or
-                    (q(3) and (not q(2)) and (not q(1)) and q(0)) or
-                    (q(3) and q(2) and (not q(1)) and q(0));
+    sel          <= ((q(3) and (not q(2)) and q(1) and  q(0)) or
+                     ((not q(3)) and  q(2) and (not q(1)) and q(0)));
 
-    done         <= q(4) and (not q(3)) and (not q(2)) and (not q(1)) and (not q(0));
-    ld           <= '0'; -- No seu circuito ExponentialSearch, ld é ligado na constante 0
+    done         <= q(4);
 
-    -- Saídas de Seleção dos Multiplexadores (Output_Muxes do Logisim)
-    cmd.sel_i     <= q(3) and (not q(2));
-    cmd.sel_left  <= q(3) and q(2);
-    cmd.sel_right <= q(3) and q(2);
+    -- output_muxes 
+    cmd.sel_i       <= (not q(0));
+    cmd.sel_left    <= q(2) and (not q(1));
+    cmd.sel_right   <= q(0);
 
-    cmd.sx1_0     <= ((not q(3)) and q(2)) or (q(3) and q(2));
-    cmd.sx1_1     <= (q(3) and (not q(2)) and (not q(1))) or (q(3) and q(2) and q(1));
-    cmd.sx1_2     <= q(3) and (not q(2)) and q(1);
+    cmd.sx1_0       <= ((not q(3)) and (not q(0))) or ((not q(2)) and (not q(1)));
+    cmd.sx1_1       <= (q(3) and (not q(2))) or ((not q(3)) and (not q(1)) and q(0));
+    cmd.sx1_2       <= q(3) and  q(2);
 
-    cmd.sy1_0     <= ((not q(3)) and q(2) and (not q(1))) or (q(3) and q(2) and (not q(1)));
-    cmd.sy1_1     <= ((not q(3)) and q(2) and q(1)) or (q(3) and (not q(2)) and (not q(1)));
+    cmd.sy1_0       <= ((not q(3)) and (not q(0))) or ((not q(2)) and (not q(1)));
+    cmd.sy1_1       <= (q(3) and (not q(2))) or ((not q(3)) and (not q(1)) and q(0));
 
-    cmd.sub1      <= ((not q(3)) and q(2)) or (q(3) and (not q(2)) and (not q(1))) or (q(3) and q(2) and q(1));
-    cmd.sx2       <= q(3) and q(2) and (not q(1));
-    cmd.sy2_0     <= q(3) and q(2) and (not q(1));
-    cmd.sy2_1     <= q(3) and (not q(2)) and q(1);
+    cmd.sub1        <= q(0) or (not q(3));
+    cmd.sx2         <= q(0);
+    cmd.sy2_0       <= q(1);
+    cmd.sy2_1       <= q(0);
 
 end behavioral;

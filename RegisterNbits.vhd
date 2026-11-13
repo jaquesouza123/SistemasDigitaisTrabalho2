@@ -4,14 +4,13 @@ use IEEE.std_logic_1164.all;
 entity RegisterNbits is
     generic (
         WIDTH : integer := 8
-        INIT_VALUE  : integer := 0 
     );
     port (
-        clock   : in std_logic;
-        reset   : in std_logic;
-        ce      : in std_logic;
-        d       : in std_logic_vector(WIDTH - 1 downto 0);
-        q       : out std_logic_vector(WIDTH - 1 downto 0)
+        clock : in  std_logic;
+        reset : in  std_logic;
+        ce    : in  std_logic;
+        d     : in  std_logic_vector(WIDTH - 1 downto 0);
+        q     : out std_logic_vector(WIDTH - 1 downto 0) 
     );
 end RegisterNbits;
 

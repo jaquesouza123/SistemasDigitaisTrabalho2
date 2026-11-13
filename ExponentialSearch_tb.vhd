@@ -103,7 +103,7 @@ begin
             address  => addr2
         );
 
-    -- Geração de Clock e Reset
+    -- gerar clock e reset
     rst <= '1', '0' after 15 ns;
     clk <= not clk after 20 ns;
 

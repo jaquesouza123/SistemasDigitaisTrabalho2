@@ -3,7 +3,6 @@ use IEEE.std_logic_1164.all;
 
 package ExponentialSearch_pkg is
 
-    -- Sinais de controle do ControlPath para o DataPath 
     type Command is record
         ld_base     : std_logic;
         ld_len      : std_logic;
