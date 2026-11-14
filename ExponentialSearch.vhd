@@ -24,7 +24,7 @@ entity ExponentialSearch is
     );
 end ExponentialSearch;
 
---- Architecture Comportamental + estrutural
+--- Comportamental + estrutural
 architecture structural of ExponentialSearch is
     signal cmd : Command;
     signal sts : Status;
@@ -62,7 +62,7 @@ begin
 
 end structural;
 
---- Architecture Comportamental (mantida igual para validação no testbench)
+---  comportamental 
 architecture behavioral of ExponentialSearch is
 
     type State is (

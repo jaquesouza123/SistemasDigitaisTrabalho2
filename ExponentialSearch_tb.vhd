@@ -15,7 +15,7 @@ architecture behavioral of ExponentialSearch_tb is
     signal data_av      : std_logic;
     signal data         : std_logic_vector(DATA_WIDTH - 1 downto 0);
 
-    -- Sinais da Arquitetura 1 (Structural)
+    -- sinais da arquitetura comportamental + estrutural
     signal pos1         : std_logic_vector(DATA_WIDTH - 1 downto 0);
     signal done1        : std_logic;
     signal addr1        : std_logic_vector(ADDR_WIDTH - 1 downto 0);
@@ -23,7 +23,7 @@ architecture behavioral of ExponentialSearch_tb is
     signal mem1_data_out: std_logic_vector(DATA_WIDTH - 1 downto 0);
     signal sel1, ld1    : std_logic;
 
-    -- Sinais da Arquitetura 2 (Behavioral)
+    -- sinais da totalmente comportamental
     signal pos2         : std_logic_vector(DATA_WIDTH - 1 downto 0);
     signal done2        : std_logic;
     signal addr2        : std_logic_vector(ADDR_WIDTH - 1 downto 0);
@@ -33,7 +33,7 @@ architecture behavioral of ExponentialSearch_tb is
 
 begin
 
-    -- Instância 1: Estrutural + Comportamental
+    -- instância: estrutural + comportamental
     PROC_STR: entity work.ExponentialSearch(structural)
         generic map (
             DATA_WIDTH => DATA_WIDTH,
@@ -68,7 +68,7 @@ begin
             address  => addr1
         );
 
-    -- Instância 2: Totalmente Comportamental
+    -- instância 2: totalmente comportamental
     PROC_BEH: entity work.ExponentialSearch(behavioral)
         generic map (
             DATA_WIDTH => DATA_WIDTH,
@@ -107,35 +107,23 @@ begin
     rst <= '1', '0' after 15 ns;
     clk <= not clk after 20 ns;
 
-    -- Estímulos de Teste (Base, Len, Key)
-    process
-    begin
-        data_av <= '0';
-        data    <= (others => '0');
+    
+process
+begin
+    data_av <= '0';
+    data    <= (others => '0');
+    wait until rst = '0';
+    wait until rising_edge(clk);
 
-        wait until rst = '0';
-        wait until rising_edge(clk);
-
-        -- Inicia busca
-        data_av <= '1';
-        wait until rising_edge(clk);
-        data_av <= '0';
-
-        -- Ciclo S1: Envia Base (ex: endereço 0)
-        data <= x"00";
-        wait until rising_edge(clk);
-
-        -- Ciclo S2: Envia Len (ex: tamanho 11 = 0x0B)
-        data <= x"0B";
-        wait until rising_edge(clk);
-
-        -- Ciclo S3: Envia Key (ex: valor procurado 0x05)
-        data <= x"05";
-        wait until rising_edge(clk);
-
-        -- Aguarda conclusão de ambos
-        wait until done1 = '1' and done2 = '1';
-        wait;
-    end process;
-
+    data <= x"00"; data_av <= '1';   -- base = 0
+    wait until rising_edge(clk);
+    data <= x"0B";                   -- tamanho = 11
+    wait until rising_edge(clk);
+    data <= x"06";                   -- key = 06
+    wait until rising_edge(clk);
+    data_av <= '0';
+    --saída esperada: pos = 03
+    wait until done1 = '1';
+    wait;
+end process;
 end behavioral;

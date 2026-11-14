@@ -7,7 +7,7 @@ entity ControlPath is
         clk     : in std_logic;
         rst     : in std_logic;
         data_av : in std_logic; 
-        sts     : in Status;   
+        sts     : in Status;    
         cmd     : out Command;
         sel     : out std_logic; 
         ld      : out std_logic; 
@@ -24,7 +24,7 @@ architecture behavioral of ControlPath is
 begin
 
     n  <= sts.neg;
-    z  <= sts.zero; -- Corrigido o operador <=
+    z  <= sts.zero; 
     av <= data_av;
 
     -- flip-flops D
@@ -59,7 +59,7 @@ begin
              (q(3) and (not q(2)) and z and q(0)));
 
     d(0) <= (((not q(3)) and (not q(2)) and (not q(1)) and (not av) and q(0)) or 
-             ((not q(4)) and (not q(2)) and av and (not q(0))) or 
+             ((not q(2)) and (not q(4)) and av and (not q(0))) or 
              ((not q(3)) and q(1) and n and q(0)) or 
              (q(2) and (not q(1)) and (not q(0))) or 
              ((not q(3)) and q(2) and q(1) and q(0)) or 
@@ -69,18 +69,19 @@ begin
              (q(3) and q(2) and (not q(1))));
 
     -- outputRegisters 
-    cmd.ld_base  <= (not q(4)) and (not q(3)) and (not q(2)) and (not q(1)) and q(0);
-    cmd.ld_len   <= (not q(3)) and (not q(2)) and q(1) and  q(0);
+    cmd.ld_base <= (not q(4)) and (not q(3)) and (not q(2)) and (not q(1)) and (not q(0)); 
+
+    cmd.ld_len  <= (not q(3)) and (not q(2)) and (not q(1)) and q(0);                     
     cmd.ld_key   <= (not q(3)) and (not q(2)) and q(1) and (not q(0));
 
     cmd.ld_i     <= (((not q(3)) and (not q(2)) and q(1) and q(0)) or
                      ((not q(3)) and q(2) and  q(1) and (not q(0))));
 
-    cmd.ld_addr  <= (((not q(3)) and (not q(2)) and  q(1) and (not q(0))) or
-                     ((not q(3)) and q(2) and (not q(1)) and (not q(0))));
+    cmd.ld_addr <= (q(3) and (not q(2)) and q(1) and (not q(0))) or
+                   ((not q(3)) and q(2) and (not q(1)) and (not q(0)));                    
 
-    cmd.ld_left  <= (((not q(3)) and (not q(1)) and (not q(0))) or
-                     ((not q(3)) and q(2) and q(1) and  q(0)));
+    cmd.ld_left <= (q(3) and (not q(1)) and (not q(0))) or
+                   ((not q(3)) and q(2) and q(1) and q(0));
 
     cmd.ld_right <= (((not q(3)) and q(2) and q(1) and q(0)) or
                      (q(3) and  q(2) and (not q(1)) and q(0)) or

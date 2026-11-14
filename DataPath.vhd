@@ -115,9 +115,9 @@ begin
 
     -- multiplexadores de entrada dos registradores
     in_i     <= x"01"   when cmd.sel_i = '0'     else i_mult;
-    in_left  <= i_mult  when cmd.sel_left = '0'  else add1_out;
+    in_left  <= i_div  when cmd.sel_left = '0'  else add1_out;
     in_right <= regI    when cmd.sel_right = '0' else add1_out;
-    in_pos   <= x"ff"   when cmd.sel_pos = '0'   else regMid;
+    in_pos  <= regMid when cmd.sel_pos  = '0' else x"ff";  
 
     -- agrupamento dos seletores dos muxes principais
     sx1 <= cmd.sx1_2 & cmd.sx1_1 & cmd.sx1_0;
@@ -173,7 +173,7 @@ begin
             cout => open
         );
 
-    -- status
+    -- sinais de status
     sts.neg  <= add1_out(DATA_WIDTH - 1);
     sts.zero <= '1' when add1_out = (DATA_WIDTH - 1 downto 0 => '0') else '0';
 

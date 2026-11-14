@@ -219,7 +219,7 @@ begin
     ld   <= '0';
     done <= '1' when currentState = S16 else '0';
     addr <= std_logic_vector(regAddr);
-    posi <= std_logic_vector(regPos);
+    pos <= std_logic_vector(regPos);
     data_out <= (others => '0');
 
 end behavioral;
