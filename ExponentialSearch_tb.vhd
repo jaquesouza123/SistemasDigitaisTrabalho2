@@ -120,10 +120,10 @@ begin
     wait until rising_edge(clk);
     data <= x"0b";                   -- tamanho = 11
     wait until rising_edge(clk);
-    data <= x"06";                   -- key = 06
+    data <= x"36";                   -- chave = 54
     wait until rising_edge(clk);
     data_av <= '0';
-    --saída esperada: pos = 03
+    --saída: pos = 06
     wait until done1 = '1';
     wait;
 end process;

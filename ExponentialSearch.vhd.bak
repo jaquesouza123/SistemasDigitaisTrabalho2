@@ -66,9 +66,9 @@ end structural;
 architecture behavioral of ExponentialSearch is
 
     type State is (
-        S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16
+        S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15
     );
-    signal currentState : State;
+    signal estadoAtual: State;
 
     signal regBase, regLen, regKey, regI     : unsigned(DATA_WIDTH - 1 downto 0);
     signal regLeft, regRight, regMid     : unsigned(DATA_WIDTH - 1 downto 0);
@@ -81,7 +81,7 @@ begin
         variable mid_calc : unsigned(DATA_WIDTH - 1 downto 0);
     begin
         if rst = '1' then
-            currentState <= S0;
+            estadoAtual <= S0;
             regBase  <= (others => '0');
             regLen   <= (others => '0');
             regKey   <= (others => '0');
@@ -93,133 +93,129 @@ begin
             regPos   <= (others => '0');
 
         elsif rising_edge(clk) then
-            case currentState is
+            case estadoAtual is
                 when S0 =>
                     if data_av = '1' then
                         regBase <= unsigned(data);
-                        currentState <= S1;
+                        estadoAtual <= S1;
                     else
-                        currentState <= S0;
+                        estadoAtual <= S0;
                     end if;
 
                 when S1 =>
                     if data_av = '1' then
                         regLen <= unsigned(data);
-                        currentState <= S2;
+                        if unsigned(data) = 0 then
+                            regPos <= x"FF";
+                            estadoAtual <= S15;
+                        else
+                            estadoAtual <= S2;
+                        end if;
                     else
-                        currentState <= S1;
+                        estadoAtual <= S1;
                     end if;
 
                 when S2 =>
                     if data_av = '1' then
                         regKey <= unsigned(data);
-                        if unsigned(data) = 0 then
-                            regPos <= x"FF";
-                            currentState <= S16;
-                        else
-                            currentState <= S3;
-                        end if;
+                        estadoAtual <= S3;
                     else
-                        currentState <= S2;
+                        estadoAtual <= S2;
                     end if;
 
                 when S3 =>
-                    regI <= to_unsigned(1, DATA_WIDTH);
-                    currentState <= S4;
+                    regI <= to_unsigned(1, DATA_WIDTH); -- converte a constante 1 para o tamanho correto
+                   estadoAtual  <= S4;
 
                 when S4 =>
                     regAddr <= regBase + regI;
-                    diff := regLen - regI;
-                    if diff(DATA_WIDTH - 1) = '1' then
-                        currentState <= S7;
+                    diff := regLen - regI;      
+                    if diff(DATA_WIDTH - 1) = '1' then  -- i > len, (data_with - 1) avalia o bit mais significativo
+                        estadoAtual <= S7;
                     else
-                        currentState <= S5;
+                        estadoAtual <= S5;
                     end if;
 
                 when S5 =>
-                    diff := unsigned(data_in) - regKey;
-                    if diff = 0 then
+                    diff := unsigned(data_in) - regKey; -- subtrai o dado lido da RAM pela chave procurada
+                    if diff = 0 then     -- se der 0, ele é a cahve procura
                         regPos <= regI;
-                        currentState <= S16;
-                    elsif diff(DATA_WIDTH - 1) = '1' then
-                        currentState <= S6;
+                        estadoAtual <= S15;
+                    elsif diff(DATA_WIDTH - 1) = '1' then -- se der 1, a chave procurada é maior
+                        estadoAtual <= S6;                -- a busca continua
                     else
-                        currentState <= S8;
+                        estadoAtual <= S8;   -- a chave procurada é menor, começa a busca binária
                     end if;
 
                 when S6 =>
-                    regI <= shift_left(regI, 1);
-                    currentState <= S4;
+                    regI <= shift_left(regI, 1); -- multiplica i * 2
+                    estadoAtual <= S4;
 
                 when S7 =>
                     regLeft <= shift_right(regI, 1);
                     regRight <= regLen - 1;
-                    currentState <= S9;
+                    estadoAtual <= S9;
 
                 when S8 =>
                     regLeft <= shift_right(regI, 1);
                     regRight <= regI;
-                    currentState <= S9;
+                    estadoAtual <= S9;
 
                 when S9 =>
-                    diff := regRight - regLeft;
-                    if diff(DATA_WIDTH - 1) = '1' then
+                    diff := regRight - regLeft;   
+                    if diff(DATA_WIDTH - 1) = '1' then -- se left > right
                         regPos <= x"FF";
-                        currentState <= S16;
+                        estadoAtual <= S15;
                     else
-                        mid_calc := shift_right(regLeft + regRight, 1);
+                        mid_calc := shift_right(regLeft + regRight, 1); -- left <= right
                         regMid <= mid_calc;
-                        currentState <= S10;
+                        estadoAtual <= S10;
                     end if;
 
                 when S10 =>
                     regAddr <= regBase + regMid;
-                    currentState <= S11;
+                    estadoAtual <= S11;
 
                 when S11 =>
-                    diff := unsigned(data_in) - regKey;
-                    if diff = 0 then
-                        currentState <= S14;
-                    elsif diff(DATA_WIDTH - 1) = '1' then
-                        currentState <= S12;
+                    diff := unsigned(data_in) - regKey; 
+                    if diff = 0 then  -- achou a chave
+                        estadoAtual <= S14;
+                    elsif diff(DATA_WIDTH - 1) = '1' then -- key > data_in
+                        estadoAtual <= S12;
                     else
-                        currentState <= S13;
+                        estadoAtual <= S13;  -- key < data_in, continua a busca
                     end if;
 
                 when S12 =>
                     regLeft <= regMid + 1;
-                    currentState <= S9;
+                    estadoAtual <= S9;
 
                 when S13 =>
                     regRight <= regMid - 1;
-                    currentState <= S9;
+                    estadoAtual <= S9;
 
                 when S14 =>
                     regPos <= regMid;
-                    currentState <= S16;
+                    estadoAtual <= S15;
 
                 when S15 =>
-                    regPos <= x"FF";
-                    currentState <= S16;
-
-                when S16 =>
                     if data_av = '1' then
-                        currentState <= S16;
+                        estadoAtual <= S15;
                     else
-                        currentState <= S0;
+                        estadoAtual <= S0;
                     end if;
 
                 when others =>
-                    currentState <= S0;
+                    estadoAtual <= S0;
             end case;
         end if;
     end process;
 
-    sel  <= '1' when (currentState = S4 or currentState = S10) else '0';
+    sel  <= '1' when (estadoAtual = S4 or estadoAtual = S10) else '0';
     ld   <= '0';
-    done <= '1' when currentState = S16 else '0';
+    done <= '1' when estadoAtual = S15 else '0';
     addr <= std_logic_vector(regAddr);
     pos <= std_logic_vector(regPos);
     data_out <= (others => '0');
 
-end behavioral;'
+end behavioral;

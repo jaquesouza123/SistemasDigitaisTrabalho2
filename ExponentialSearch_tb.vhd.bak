@@ -116,14 +116,14 @@ begin
     wait until rst = '0';
     wait until rising_edge(clk);
 
-    data <= x"00"; data_av <= '1';   -- base = 0
+    data <= x"02"; data_av <= '1';   -- base = 0
     wait until rising_edge(clk);
     data <= x"0b";                   -- tamanho = 11
     wait until rising_edge(clk);
-    data <= x"06";                   -- key = 06
+    data <= x"36";                   -- key = 54
     wait until rising_edge(clk);
-    data_av <= "0";
-    --saída esperada: pos = 03
+    data_av <= '0';
+    --saída esperada: pos = 04
     wait until done1 = '1';
     wait;
 end process;
