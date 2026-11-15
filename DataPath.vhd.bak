@@ -173,7 +173,7 @@ begin
             cout => open
         );
 
-    -- status
+    -- sinais de status
     sts.neg  <= add1_out(DATA_WIDTH - 1);
     sts.zero <= '1' when add1_out = (DATA_WIDTH - 1 downto 0 => '0') else '0';
 

@@ -13,8 +13,8 @@ entity DataPath is
         rst         : in std_logic;
         data        : in std_logic_vector(DATA_WIDTH - 1 downto 0);
         A           : in std_logic_vector(DATA_WIDTH - 1 downto 0); 
-        cmd         : in Command;
-        sts         : out Status;
+        cmd         : in Command; -- ordens que o Control Path dá para o Datapath
+        sts         : out Status; -- respostas que o Datapath dá para o Control Path
         addr        : out std_logic_vector(ADDR_WIDTH - 1 downto 0);
         pos         : out std_logic_vector(DATA_WIDTH - 1 downto 0)
     );
@@ -44,7 +44,7 @@ architecture structural of DataPath is
     signal add1_out, add2_out     : std_logic_vector(DATA_WIDTH - 1 downto 0);
 
 begin
-
+    -- instâncias dos registradores
     U_REG_BASE: entity work.RegisterNbits generic map(WIDTH => DATA_WIDTH)
         port map(clock => clk,
                  reset => rst,

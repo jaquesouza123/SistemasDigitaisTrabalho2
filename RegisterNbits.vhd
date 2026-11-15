@@ -19,7 +19,7 @@ begin
     process(clock, reset)
     begin
         if reset = '1' then
-            q <= (others => '0');
+            q <= (others => '0'); --- saída q é zerada, independentemente do clock
         elsif rising_edge(clock) then
             if ce = '1' then
                 q <= d;

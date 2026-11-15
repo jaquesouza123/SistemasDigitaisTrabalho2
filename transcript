@@ -1,183 +1,6 @@
-vcom ControlPath.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:52:30 on Nov 14,2026
-# vcom -reportprogress 300 ControlPath.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package ExponentialSearch_pkg
-# -- Compiling entity ControlPath
-# -- Compiling architecture behavioral of ControlPath
-# End time: 14:52:30 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom ControlPath.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:52:44 on Nov 14,2026
-# vcom -reportprogress 300 ControlPath.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package ExponentialSearch_pkg
-# -- Compiling entity ControlPath
-# -- Compiling architecture behavioral of ControlPath
-# End time: 14:52:44 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom Memory.vhd 
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:52:54 on Nov 14,2026
-# vcom -reportprogress 300 Memory.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package Util_pkg
-# -- Compiling entity Memory
-# -- Compiling architecture BlockRAM of Memory
-# End time: 14:52:54 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom RegisterNbits.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:52:54 on Nov 14,2026
-# vcom -reportprogress 300 RegisterNbits.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity RegisterNbits
-# -- Compiling architecture behavioral of RegisterNbits
-# End time: 14:52:54 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
- vcom Adder_nbits.vhd 
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:52:55 on Nov 14,2026
-# vcom -reportprogress 300 Adder_nbits.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity Adder_nbits
-# -- Compiling architecture behavioral of Adder_nbits
-# End time: 14:52:55 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom ExponentialSearch_pkg.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:52:55 on Nov 14,2026
-# vcom -reportprogress 300 ExponentialSearch_pkg.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling package ExponentialSearch_pkg
-# End time: 14:52:55 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
- vcom DataPath.vhd 
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:52:55 on Nov 14,2026
-# vcom -reportprogress 300 DataPath.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package ExponentialSearch_pkg
-# -- Compiling entity DataPath
-# -- Compiling architecture structural of DataPath
-# -- Loading entity RegisterNbits
-# -- Loading entity Adder_nbits
-# End time: 14:52:55 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom ControlPath.vhd 
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:52:55 on Nov 14,2026
-# vcom -reportprogress 300 ControlPath.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package ExponentialSearch_pkg
-# -- Compiling entity ControlPath
-# -- Compiling architecture behavioral of ControlPath
-# End time: 14:52:56 on Nov 14,2026, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-vcom ExponentialSearch.vhd 
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:52:56 on Nov 14,2026
-# vcom -reportprogress 300 ExponentialSearch.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package ExponentialSearch_pkg
-# -- Compiling entity ExponentialSearch
-# -- Compiling architecture structural of ExponentialSearch
-# -- Loading entity ControlPath
-# -- Loading entity DataPath
-# -- Compiling architecture behavioral of ExponentialSearch
-# -- Loading entity ExponentialSearch
-# End time: 14:52:56 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom ExponentialSearch_tb.vhd 
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:52:56 on Nov 14,2026
-# vcom -reportprogress 300 ExponentialSearch_tb.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity ExponentialSearch_tb
-# -- Compiling architecture behavioral of ExponentialSearch_tb
-# -- Loading package ExponentialSearch_pkg
-# -- Loading entity ExponentialSearch
-# -- Loading package Util_pkg
-# -- Loading entity Memory
-# End time: 14:52:56 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim -gui work.exponentialsearch_tb
-# vsim -gui work.exponentialsearch_tb 
-# Start time: 14:53:10 on Nov 14,2026
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading work.exponentialsearch_pkg
-# Loading work.util_pkg(body)
-# Loading work.exponentialsearch_tb(behavioral)
-# Loading work.exponentialsearch(structural)
-# Loading work.controlpath(behavioral)
-# Loading work.datapath(structural)
-# Loading work.registernbits(behavioral)
-# Loading work.adder_nbits(behavioral)
-# Loading work.memory(blockram)
-# Loading work.exponentialsearch(behavioral)
-# ** Warning: (vsim-8684) No drivers exist on out port /exponentialsearch_tb/PROC_STR/CONTROL_PATH/cmd.mem, and its initial value is not used.
-# Therefore, simulation behavior may occur that is not in compliance with
-# the VHDL standard as the initial values come from the base signal /exponentialsearch_tb/PROC_STR/cmd.mem.
-# ** Warning: (vsim-8684) No drivers exist on out port /exponentialsearch_tb/PROC_STR/CONTROL_PATH/cmd.done, and its initial value is not used.
-# Therefore, simulation behavior may occur that is not in compliance with
-# the VHDL standard as the initial values come from the base signal /exponentialsearch_tb/PROC_STR/cmd.done.
-# ** Warning: (vsim-8683) Uninitialized out port /exponentialsearch_tb/PROC_STR/CONTROL_PATH/ld has no driver.
-# This port will contribute value (U) to the signal network.
-add wave sim:/exponentialsearch_tb/*
-run 500 ns
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /exponentialsearch_tb/RAM2
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /exponentialsearch_tb/RAM1
-run 500 ns
-quit -sim
-# End time: 14:54:19 on Nov 14,2026, Elapsed time: 0:01:09
-# Errors: 0, Warnings: 6
-vcom ControlPath.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:54:41 on Nov 14,2026
-# vcom -reportprogress 300 ControlPath.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package ExponentialSearch_pkg
-# -- Compiling entity ControlPath
-# -- Compiling architecture behavioral of ControlPath
-# End time: 14:54:41 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
 vcom ExponentialSearch_tb.vhd
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:54:57 on Nov 14,2026
+# Start time: 15:46:09 on Nov 15,2026
 # vcom -reportprogress 300 ExponentialSearch_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -189,117 +12,11 @@ vcom ExponentialSearch_tb.vhd
 # -- Loading entity ExponentialSearch
 # -- Loading package Util_pkg
 # -- Loading entity Memory
-# End time: 14:54:57 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom Memory.vhd 
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:55:06 on Nov 14,2026
-# vcom -reportprogress 300 Memory.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package Util_pkg
-# -- Compiling entity Memory
-# -- Compiling architecture BlockRAM of Memory
-# End time: 14:55:07 on Nov 14,2026, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-vcom RegisterNbits.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:55:07 on Nov 14,2026
-# vcom -reportprogress 300 RegisterNbits.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity RegisterNbits
-# -- Compiling architecture behavioral of RegisterNbits
-# End time: 14:55:07 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
- vcom Adder_nbits.vhd 
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:55:07 on Nov 14,2026
-# vcom -reportprogress 300 Adder_nbits.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity Adder_nbits
-# -- Compiling architecture behavioral of Adder_nbits
-# End time: 14:55:07 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom ExponentialSearch_pkg.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:55:07 on Nov 14,2026
-# vcom -reportprogress 300 ExponentialSearch_pkg.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling package ExponentialSearch_pkg
-# End time: 14:55:07 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
- vcom DataPath.vhd 
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:55:08 on Nov 14,2026
-# vcom -reportprogress 300 DataPath.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package ExponentialSearch_pkg
-# -- Compiling entity DataPath
-# -- Compiling architecture structural of DataPath
-# -- Loading entity RegisterNbits
-# -- Loading entity Adder_nbits
-# End time: 14:55:08 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom ControlPath.vhd 
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:55:08 on Nov 14,2026
-# vcom -reportprogress 300 ControlPath.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package ExponentialSearch_pkg
-# -- Compiling entity ControlPath
-# -- Compiling architecture behavioral of ControlPath
-# End time: 14:55:08 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom ExponentialSearch.vhd 
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:55:08 on Nov 14,2026
-# vcom -reportprogress 300 ExponentialSearch.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package ExponentialSearch_pkg
-# -- Compiling entity ExponentialSearch
-# -- Compiling architecture structural of ExponentialSearch
-# -- Loading entity ControlPath
-# -- Loading entity DataPath
-# -- Compiling architecture behavioral of ExponentialSearch
-# -- Loading entity ExponentialSearch
-# End time: 14:55:08 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom ExponentialSearch_tb.vhd 
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:55:08 on Nov 14,2026
-# vcom -reportprogress 300 ExponentialSearch_tb.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity ExponentialSearch_tb
-# -- Compiling architecture behavioral of ExponentialSearch_tb
-# -- Loading package ExponentialSearch_pkg
-# -- Loading entity ExponentialSearch
-# -- Loading package Util_pkg
-# -- Loading entity Memory
-# End time: 14:55:09 on Nov 14,2026, Elapsed time: 0:00:01
+# End time: 15:46:09 on Nov 15,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vsim -gui work.exponentialsearch_tb
 # vsim -gui work.exponentialsearch_tb 
-# Start time: 14:55:17 on Nov 14,2026
+# Start time: 15:46:17 on Nov 15,2026
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -314,14 +31,12 @@ vsim -gui work.exponentialsearch_tb
 # Loading work.adder_nbits(behavioral)
 # Loading work.memory(blockram)
 # Loading work.exponentialsearch(behavioral)
-# ** Warning: (vsim-8684) No drivers exist on out port /exponentialsearch_tb/PROC_STR/CONTROL_PATH/cmd.mem, and its initial value is not used.
+# ** Warning: (vsim-8684) No drivers exist on out port /exponentialsearch_tb/COMP_ESTR/CONTROL_PATH/cmd.mem, and its initial value is not used.
 # Therefore, simulation behavior may occur that is not in compliance with
-# the VHDL standard as the initial values come from the base signal /exponentialsearch_tb/PROC_STR/cmd.mem.
-# ** Warning: (vsim-8684) No drivers exist on out port /exponentialsearch_tb/PROC_STR/CONTROL_PATH/cmd.done, and its initial value is not used.
+# the VHDL standard as the initial values come from the base signal /exponentialsearch_tb/COMP_ESTR/cmd.mem.
+# ** Warning: (vsim-8684) No drivers exist on out port /exponentialsearch_tb/COMP_ESTR/CONTROL_PATH/cmd.done, and its initial value is not used.
 # Therefore, simulation behavior may occur that is not in compliance with
-# the VHDL standard as the initial values come from the base signal /exponentialsearch_tb/PROC_STR/cmd.done.
-# ** Warning: (vsim-8683) Uninitialized out port /exponentialsearch_tb/PROC_STR/CONTROL_PATH/ld has no driver.
-# This port will contribute value (U) to the signal network.
+# the VHDL standard as the initial values come from the base signal /exponentialsearch_tb/COMP_ESTR/cmd.done.
 add wave sim:/exponentialsearch_tb/*
 run 1000 ns
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -329,113 +44,11 @@ run 1000 ns
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /exponentialsearch_tb/RAM1
 quit -sim
-# End time: 14:55:47 on Nov 14,2026, Elapsed time: 0:00:30
-# Errors: 0, Warnings: 6
-vcom Util_pkg.vhd 
+# End time: 15:49:10 on Nov 15,2026, Elapsed time: 0:02:53
+# Errors: 0, Warnings: 5
+vcom ExponentialSearch_tb.vhd
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 15:12:11 on Nov 14,2026
-# vcom -reportprogress 300 Util_pkg.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling package Util_pkg
-# -- Compiling package body Util_pkg
-# -- Loading package Util_pkg
-# End time: 15:12:11 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom Memory.vhd 
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 15:12:12 on Nov 14,2026
-# vcom -reportprogress 300 Memory.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package Util_pkg
-# -- Compiling entity Memory
-# -- Compiling architecture BlockRAM of Memory
-# End time: 15:12:12 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom RegisterNbits.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 15:12:12 on Nov 14,2026
-# vcom -reportprogress 300 RegisterNbits.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity RegisterNbits
-# -- Compiling architecture behavioral of RegisterNbits
-# End time: 15:12:12 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
- vcom Adder_nbits.vhd 
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 15:12:12 on Nov 14,2026
-# vcom -reportprogress 300 Adder_nbits.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity Adder_nbits
-# -- Compiling architecture behavioral of Adder_nbits
-# End time: 15:12:12 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom ExponentialSearch_pkg.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 15:12:12 on Nov 14,2026
-# vcom -reportprogress 300 ExponentialSearch_pkg.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling package ExponentialSearch_pkg
-# End time: 15:12:13 on Nov 14,2026, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
- vcom DataPath.vhd 
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 15:12:13 on Nov 14,2026
-# vcom -reportprogress 300 DataPath.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package ExponentialSearch_pkg
-# -- Compiling entity DataPath
-# -- Compiling architecture structural of DataPath
-# -- Loading entity RegisterNbits
-# -- Loading entity Adder_nbits
-# End time: 15:12:13 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom ControlPath.vhd 
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 15:12:13 on Nov 14,2026
-# vcom -reportprogress 300 ControlPath.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package ExponentialSearch_pkg
-# -- Compiling entity ControlPath
-# -- Compiling architecture behavioral of ControlPath
-# End time: 15:12:13 on Nov 14,2026, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom ExponentialSearch.vhd 
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 15:12:13 on Nov 14,2026
-# vcom -reportprogress 300 ExponentialSearch.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package ExponentialSearch_pkg
-# -- Compiling entity ExponentialSearch
-# -- Compiling architecture structural of ExponentialSearch
-# -- Loading entity ControlPath
-# -- Loading entity DataPath
-# -- Compiling architecture behavioral of ExponentialSearch
-# -- Loading entity ExponentialSearch
-# End time: 15:12:14 on Nov 14,2026, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-vcom ExponentialSearch_tb.vhd 
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 15:12:14 on Nov 14,2026
+# Start time: 15:49:53 on Nov 15,2026
 # vcom -reportprogress 300 ExponentialSearch_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -447,11 +60,11 @@ vcom ExponentialSearch_tb.vhd
 # -- Loading entity ExponentialSearch
 # -- Loading package Util_pkg
 # -- Loading entity Memory
-# End time: 15:12:14 on Nov 14,2026, Elapsed time: 0:00:00
+# End time: 15:49:53 on Nov 15,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vsim -gui work.exponentialsearch_tb
 # vsim -gui work.exponentialsearch_tb 
-# Start time: 15:12:22 on Nov 14,2026
+# Start time: 15:50:01 on Nov 15,2026
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -466,66 +79,40 @@ vsim -gui work.exponentialsearch_tb
 # Loading work.adder_nbits(behavioral)
 # Loading work.memory(blockram)
 # Loading work.exponentialsearch(behavioral)
-# ** Warning: (vsim-8684) No drivers exist on out port /exponentialsearch_tb/PROC_STR/CONTROL_PATH/cmd.mem, and its initial value is not used.
+# ** Warning: (vsim-8684) No drivers exist on out port /exponentialsearch_tb/COMP_ESTR/CONTROL_PATH/cmd.mem, and its initial value is not used.
 # Therefore, simulation behavior may occur that is not in compliance with
-# the VHDL standard as the initial values come from the base signal /exponentialsearch_tb/PROC_STR/cmd.mem.
-# ** Warning: (vsim-8684) No drivers exist on out port /exponentialsearch_tb/PROC_STR/CONTROL_PATH/cmd.done, and its initial value is not used.
+# the VHDL standard as the initial values come from the base signal /exponentialsearch_tb/COMP_ESTR/cmd.mem.
+# ** Warning: (vsim-8684) No drivers exist on out port /exponentialsearch_tb/COMP_ESTR/CONTROL_PATH/cmd.done, and its initial value is not used.
 # Therefore, simulation behavior may occur that is not in compliance with
-# the VHDL standard as the initial values come from the base signal /exponentialsearch_tb/PROC_STR/cmd.done.
-# ** Warning: (vsim-8683) Uninitialized out port /exponentialsearch_tb/PROC_STR/CONTROL_PATH/ld has no driver.
-# This port will contribute value (U) to the signal network.
+# the VHDL standard as the initial values come from the base signal /exponentialsearch_tb/COMP_ESTR/cmd.done.
 add wave sim:/exponentialsearch_tb/*
-run 100 ns
+run 1000 ns
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /exponentialsearch_tb/RAM2
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /exponentialsearch_tb/RAM1
-run 100 ns
-run 100 ns
-run 1000 ns
-# image file format "bmp" is unknown
-# image file format "bmp" is unknown
-# image file format "bmp" is unknown
-# image file format "bmp" is unknown
 quit -sim
-# End time: 15:16:50 on Nov 14,2026, Elapsed time: 0:04:28
-# Errors: 0, Warnings: 6
-#  Trace back: window name "source7" already exists in parent
-#     while executing
-# "frame [GetActiveWindowFooter].$name"
-#     (procedure "Console::CreateWindowFooter" line 3)
-#     invoked from within
-# "Console::CreateWindowFooter [$frame_name cget -windowname]"
-#     (object "::.main_pane.source7" method "::mtiwidgets::WindowObj::GetClientFooter" body line 23)
-#     invoked from within
-# "$windowobj GetClientFooter"
-#     (object "::.main_pane.source7.interior.cs.body.srcobj" method "::vsimwidgets::Srcobj::UpdateSourceState" body line 21)
-#     invoked from within
-# "UpdateSourceState"
-#     (object "::.main_pane.source7.interior.cs.body.srcobj" method "::vsimwidgets::Srcobj::Activate" body line 6)
-#     invoked from within
-# ".main_pane.source7.interior.cs.body.srcobj Activate .main_pane.source7"
-#     (in namespace inscope "::vsimwidgets::Srcobj" script line 1)
-#     invoked from within
-# "namespace inscope ::vsimwidgets::Srcobj {.main_pane.source7.interior.cs.body.srcobj Activate} .main_pane.source7"
-#     ("eval" body line 1)
-#     invoked from within
-# "eval $itk_option(-activatecommand) $frame_name"
-#     (object "::.main_pane.source7" method "::mtiwidgets::WindowObj::Activate" body line 16)
-#     invoked from within
-# "$windowobj Activate """
-#     (object "::.vcop" method "::vsimwidgets::Vcop::ActualActivate" body line 36)
-#     invoked from within
-# "::.vcop ActualActivate"
-#     (in namespace inscope "::vsimwidgets::Vcop" script line 1)
-#     invoked from within
-# "namespace inscope ::vsimwidgets::Vcop {::.vcop ActualActivate}"
-#     ("after" script)
-#    <2:C:/intelFPGA/20.1/modelsim_ase/win32aloem/tk8.6/bgerror.tcl:106: ::tkerror {window name "source7" already exists in parent}
-#    <1:eval:1: ::tk::dialog::error::bgerror {window name "source7" already exists in parent}
+# End time: 16:29:21 on Nov 15,2026, Elapsed time: 0:39:20
+# Errors: 0, Warnings: 5
+vcom ExponentialSearch_tb.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:13:57 on Nov 15,2026
+# vcom -reportprogress 300 ExponentialSearch_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ExponentialSearch_tb
+# -- Compiling architecture behavioral of ExponentialSearch_tb
+# -- Loading package ExponentialSearch_pkg
+# -- Loading entity ExponentialSearch
+# -- Loading package Util_pkg
+# -- Loading entity Memory
+# End time: 17:13:57 on Nov 15,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 vsim -gui work.exponentialsearch_tb
 # vsim -gui work.exponentialsearch_tb 
-# Start time: 15:24:13 on Nov 14,2026
+# Start time: 17:14:08 on Nov 15,2026
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -540,20 +127,213 @@ vsim -gui work.exponentialsearch_tb
 # Loading work.adder_nbits(behavioral)
 # Loading work.memory(blockram)
 # Loading work.exponentialsearch(behavioral)
-# ** Warning: (vsim-8684) No drivers exist on out port /exponentialsearch_tb/PROC_STR/CONTROL_PATH/cmd.mem, and its initial value is not used.
+# ** Warning: (vsim-8684) No drivers exist on out port /exponentialsearch_tb/COMP_ESTR/CONTROL_PATH/cmd.mem, and its initial value is not used.
 # Therefore, simulation behavior may occur that is not in compliance with
-# the VHDL standard as the initial values come from the base signal /exponentialsearch_tb/PROC_STR/cmd.mem.
-# ** Warning: (vsim-8684) No drivers exist on out port /exponentialsearch_tb/PROC_STR/CONTROL_PATH/cmd.done, and its initial value is not used.
+# the VHDL standard as the initial values come from the base signal /exponentialsearch_tb/COMP_ESTR/cmd.mem.
+# ** Warning: (vsim-8684) No drivers exist on out port /exponentialsearch_tb/COMP_ESTR/CONTROL_PATH/cmd.done, and its initial value is not used.
 # Therefore, simulation behavior may occur that is not in compliance with
-# the VHDL standard as the initial values come from the base signal /exponentialsearch_tb/PROC_STR/cmd.done.
-# ** Warning: (vsim-8683) Uninitialized out port /exponentialsearch_tb/PROC_STR/CONTROL_PATH/ld has no driver.
-# This port will contribute value (U) to the signal network.
+# the VHDL standard as the initial values come from the base signal /exponentialsearch_tb/COMP_ESTR/cmd.done.
 add wave sim:/exponentialsearch_tb/*
-run 2000 ns
+run 1000 ns
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /exponentialsearch_tb/RAM2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /exponentialsearch_tb/RAM1
+# WARNING: No extended dataflow license exists
+add wave -position end  sim:/exponentialsearch_tb/TOTAL_COMP/currentState
+quit -sim
+# End time: 17:19:39 on Nov 15,2026, Elapsed time: 0:05:31
+# Errors: 0, Warnings: 5
+vcom ExponentialSearch_tb.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:20:18 on Nov 15,2026
+# vcom -reportprogress 300 ExponentialSearch_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ExponentialSearch_tb
+# -- Compiling architecture behavioral of ExponentialSearch_tb
+# -- Loading package ExponentialSearch_pkg
+# -- Loading entity ExponentialSearch
+# ** Error: ExponentialSearch_tb.vhd(55): near ")": syntax error
+# ** Error: ExponentialSearch_tb.vhd(57): Statement cannot be labeled.
+# -- Loading package Util_pkg
+# -- Loading entity Memory
+# ** Note: ExponentialSearch_tb.vhd(130): VHDL Compiler exiting
+# End time: 17:20:18 on Nov 15,2026, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vcom failed.
+vcom ExponentialSearch_tb.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:20:33 on Nov 15,2026
+# vcom -reportprogress 300 ExponentialSearch_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ExponentialSearch_tb
+# -- Compiling architecture behavioral of ExponentialSearch_tb
+# -- Loading package ExponentialSearch_pkg
+# -- Loading entity ExponentialSearch
+# -- Loading package Util_pkg
+# -- Loading entity Memory
+# End time: 17:20:33 on Nov 15,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -gui work.exponentialsearch_tb
+# vsim -gui work.exponentialsearch_tb 
+# Start time: 17:20:42 on Nov 15,2026
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.exponentialsearch_pkg
+# Loading work.util_pkg(body)
+# Loading work.exponentialsearch_tb(behavioral)
+# Loading work.exponentialsearch(structural)
+# Loading work.controlpath(behavioral)
+# Loading work.datapath(structural)
+# Loading work.registernbits(behavioral)
+# Loading work.adder_nbits(behavioral)
+# Loading work.memory(blockram)
+# Loading work.exponentialsearch(behavioral)
+# ** Warning: (vsim-8684) No drivers exist on out port /exponentialsearch_tb/COMP_ESTR/CONTROL_PATH/cmd.mem, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /exponentialsearch_tb/COMP_ESTR/cmd.mem.
+# ** Warning: (vsim-8684) No drivers exist on out port /exponentialsearch_tb/COMP_ESTR/CONTROL_PATH/cmd.done, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /exponentialsearch_tb/COMP_ESTR/cmd.done.
+add wave sim:/exponentialsearch_tb/*
+run 1000 ns
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /exponentialsearch_tb/RAM2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /exponentialsearch_tb/RAM1
+run 1000 ns
+quit -sim
+# End time: 17:25:19 on Nov 15,2026, Elapsed time: 0:04:37
+# Errors: 0, Warnings: 5
+vcom ExponentialSearch_tb.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:25:49 on Nov 15,2026
+# vcom -reportprogress 300 ExponentialSearch_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ExponentialSearch_tb
+# -- Compiling architecture behavioral of ExponentialSearch_tb
+# -- Loading package ExponentialSearch_pkg
+# -- Loading entity ExponentialSearch
+# -- Loading package Util_pkg
+# -- Loading entity Memory
+# ** Error: ExponentialSearch_tb.vhd(125): near "'": syntax error
+# ** Note: ExponentialSearch_tb.vhd(130): VHDL Compiler exiting
+# End time: 17:25:49 on Nov 15,2026, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vcom failed.
+vcom ExponentialSearch_tb.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:26:21 on Nov 15,2026
+# vcom -reportprogress 300 ExponentialSearch_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ExponentialSearch_tb
+# -- Compiling architecture behavioral of ExponentialSearch_tb
+# -- Loading package ExponentialSearch_pkg
+# -- Loading entity ExponentialSearch
+# -- Loading package Util_pkg
+# -- Loading entity Memory
+# ** Error: ExponentialSearch_tb.vhd(125): String literal found where non-array type ieee.std_logic_1164.STD_LOGIC was expected.
+# ** Note: ExponentialSearch_tb.vhd(130): VHDL Compiler exiting
+# End time: 17:26:21 on Nov 15,2026, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vcom failed.
+vcom ExponentialSearch_tb.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:26:46 on Nov 15,2026
+# vcom -reportprogress 300 ExponentialSearch_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ExponentialSearch_tb
+# -- Compiling architecture behavioral of ExponentialSearch_tb
+# -- Loading package ExponentialSearch_pkg
+# -- Loading entity ExponentialSearch
+# -- Loading package Util_pkg
+# -- Loading entity Memory
+# ** Error: ExponentialSearch_tb.vhd(125): Bit string literal found where non-array type ieee.std_logic_1164.STD_LOGIC was expected.
+# ** Note: ExponentialSearch_tb.vhd(130): VHDL Compiler exiting
+# End time: 17:26:46 on Nov 15,2026, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vcom failed.
+vcom ExponentialSearch_tb.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:28:31 on Nov 15,2026
+# vcom -reportprogress 300 ExponentialSearch_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ExponentialSearch_tb
+# -- Compiling architecture behavioral of ExponentialSearch_tb
+# -- Loading package ExponentialSearch_pkg
+# -- Loading entity ExponentialSearch
+# -- Loading package Util_pkg
+# -- Loading entity Memory
+# ** Error: ExponentialSearch_tb.vhd(125): String literal found where non-array type ieee.std_logic_1164.STD_LOGIC was expected.
+# ** Note: ExponentialSearch_tb.vhd(130): VHDL Compiler exiting
+# End time: 17:28:31 on Nov 15,2026, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vcom failed.
+vcom ExponentialSearch_tb.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:28:58 on Nov 15,2026
+# vcom -reportprogress 300 ExponentialSearch_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ExponentialSearch_tb
+# -- Compiling architecture behavioral of ExponentialSearch_tb
+# -- Loading package ExponentialSearch_pkg
+# -- Loading entity ExponentialSearch
+# -- Loading package Util_pkg
+# -- Loading entity Memory
+# End time: 17:28:58 on Nov 15,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -gui work.exponentialsearch_tb
+# vsim -gui work.exponentialsearch_tb 
+# Start time: 17:29:08 on Nov 15,2026
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.exponentialsearch_pkg
+# Loading work.util_pkg(body)
+# Loading work.exponentialsearch_tb(behavioral)
+# Loading work.exponentialsearch(structural)
+# Loading work.controlpath(behavioral)
+# Loading work.datapath(structural)
+# Loading work.registernbits(behavioral)
+# Loading work.adder_nbits(behavioral)
+# Loading work.memory(blockram)
+# Loading work.exponentialsearch(behavioral)
+# ** Warning: (vsim-8684) No drivers exist on out port /exponentialsearch_tb/COMP_ESTR/CONTROL_PATH/cmd.mem, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /exponentialsearch_tb/COMP_ESTR/cmd.mem.
+# ** Warning: (vsim-8684) No drivers exist on out port /exponentialsearch_tb/COMP_ESTR/CONTROL_PATH/cmd.done, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /exponentialsearch_tb/COMP_ESTR/cmd.done.
+add wave sim:/exponentialsearch_tb/*
+run 1000 ns
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /exponentialsearch_tb/RAM2
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /exponentialsearch_tb/RAM1
 quit -sim
-# End time: 15:25:24 on Nov 14,2026, Elapsed time: 0:01:11
-# Errors: 0, Warnings: 7
+# End time: 17:33:45 on Nov 15,2026, Elapsed time: 0:04:37
+# Errors: 0, Warnings: 5

@@ -34,7 +34,7 @@ architecture behavioral of ExponentialSearch_tb is
 begin
 
     -- instância: estrutural + comportamental
-    PROC_STR: entity work.ExponentialSearch(structural)
+    COMP_ESTR: entity work.ExponentialSearch(structural)
         generic map (
             DATA_WIDTH => DATA_WIDTH,
             ADDR_WIDTH => ADDR_WIDTH
@@ -51,6 +51,7 @@ begin
             data_out => mem1_data_in,
             sel      => sel1,
             ld       => ld1
+         
         );
 
     RAM1: entity work.Memory
@@ -69,7 +70,7 @@ begin
         );
 
     -- instância 2: totalmente comportamental
-    PROC_BEH: entity work.ExponentialSearch(behavioral)
+    TOTAL_COMP: entity work.ExponentialSearch(behavioral)
         generic map (
             DATA_WIDTH => DATA_WIDTH,
             ADDR_WIDTH => ADDR_WIDTH
@@ -117,7 +118,7 @@ begin
 
     data <= x"00"; data_av <= '1';   -- base = 0
     wait until rising_edge(clk);
-    data <= x"0B";                   -- tamanho = 11
+    data <= x"0b";                   -- tamanho = 11
     wait until rising_edge(clk);
     data <= x"06";                   -- key = 06
     wait until rising_edge(clk);

@@ -66,7 +66,7 @@ end structural;
 architecture behavioral of ExponentialSearch is
 
     type State is (
-        S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16
+        S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15
     );
     signal currentState : State;
 
@@ -115,7 +115,7 @@ begin
                         regKey <= unsigned(data);
                         if unsigned(data) = 0 then
                             regPos <= x"FF";
-                            currentState <= S16;
+                            currentState <= S15;
                         else
                             currentState <= S3;
                         end if;
@@ -140,7 +140,7 @@ begin
                     diff := unsigned(data_in) - regKey;
                     if diff = 0 then
                         regPos <= regI;
-                        currentState <= S16;
+                        currentState <= S15;
                     elsif diff(DATA_WIDTH - 1) = '1' then
                         currentState <= S6;
                     else
@@ -165,7 +165,7 @@ begin
                     diff := regRight - regLeft;
                     if diff(DATA_WIDTH - 1) = '1' then
                         regPos <= x"FF";
-                        currentState <= S16;
+                        currentState <= S15;
                     else
                         mid_calc := shift_right(regLeft + regRight, 1);
                         regMid <= mid_calc;
@@ -196,15 +196,11 @@ begin
 
                 when S14 =>
                     regPos <= regMid;
-                    currentState <= S16;
+                    currentState <= S15;
 
                 when S15 =>
-                    regPos <= x"FF";
-                    currentState <= S16;
-
-                when S16 =>
                     if data_av = '1' then
-                        currentState <= S16;
+                        currentState <= S15;
                     else
                         currentState <= S0;
                     end if;
@@ -217,7 +213,7 @@ begin
 
     sel  <= '1' when (currentState = S4 or currentState = S10) else '0';
     ld   <= '0';
-    done <= '1' when currentState = S16 else '0';
+    done <= '1' when currentState = S15 else '0';
     addr <= std_logic_vector(regAddr);
     pos <= std_logic_vector(regPos);
     data_out <= (others => '0');

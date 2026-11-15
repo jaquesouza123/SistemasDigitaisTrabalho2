@@ -4,13 +4,13 @@ use IEEE.numeric_std.all;
 
 entity Adder_nbits is
     generic (
-        WIDTH : integer := 8
+        WIDTH : integer := 8 -- parametrização
     );
     port (
         a       : in std_logic_vector(WIDTH - 1 downto 0);
         b       : in std_logic_vector(WIDTH - 1 downto 0);
-        cin     : in std_logic;
         sum     : out std_logic_vector(WIDTH - 1 downto 0);
+        cin     : in std_logic;
         cout    : out std_logic
     );
 end Adder_nbits;

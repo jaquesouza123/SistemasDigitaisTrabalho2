@@ -59,7 +59,7 @@ begin
              (q(3) and (not q(2)) and z and q(0)));
 
     d(0) <= (((not q(3)) and (not q(2)) and (not q(1)) and (not av) and q(0)) or 
-             ((not q(4)) and (not q(2)) and av and (not q(0))) or 
+             ((not q(2)) and (not q(4)) and av and (not q(0))) or 
              ((not q(3)) and q(1) and n and q(0)) or 
              (q(2) and (not q(1)) and (not q(0))) or 
              ((not q(3)) and q(2) and q(1) and q(0)) or 
@@ -93,9 +93,9 @@ begin
 
     cmd.sel_pos  <= q(0);
 
-    sel          <= ((q(3) and (not q(2)) and q(1) and  q(0)) or
-                     ((not q(3)) and  q(2) and (not q(1)) and q(0)));
-
+    sel <= ((q(3) and (not q(2)) and q(1) and q(0)) or 
+        ((not q(3)) and q(2) and (not q(1)) and q(0)));
+   
     done         <= q(4);
 
     -- output_muxes 

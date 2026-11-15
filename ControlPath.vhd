@@ -93,11 +93,11 @@ begin
 
     cmd.sel_pos  <= q(0);
 
-    sel          <= ((q(3) and (not q(2)) and q(1) and  q(0)) or
-                     ((not q(3)) and  q(2) and (not q(1)) and q(0)));
-
+    sel <= ((q(3) and (not q(2)) and q(1) and q(0)) or 
+        ((not q(3)) and q(2) and (not q(1)) and q(0)));
+   
     done         <= q(4);
-
+    ld <= '0';
     -- output_muxes 
     cmd.sel_i       <= (not q(0));
     cmd.sel_left    <= q(2) and (not q(1));
